@@ -117,9 +117,7 @@ app.listen(port, () => {
     console.log("port running");
 });
 
-app.get("/", (req, res) => {
-    res.send("port abled");
-});
+
 
 
 
