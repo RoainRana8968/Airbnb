@@ -1,0 +1,161 @@
+html, body {
+    min-height: 100%;
+}
+body{
+   
+    font-family: poppins, sans-serif;
+   
+}
+
+.listing-link {
+    text-decoration: none;
+    color: inherit;
+}
+button{
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.container-fluid{
+    margin: 5px;
+}
+
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-right: 1px solid rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: auto;
+    border-radius: 8px;
+}
+
+
+
+/* .navbar-brand,
+.navbar-nav .nav-link {
+    padding-top: 4px;
+    padding-bottom: 4px;
+} */
+*{
+    margin: 0;
+    padding: 0;
+}
+.bnblogo{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff6b6b;
+}
+.bnblogo i{
+     font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff6b6b;
+}
+/* .navbar{
+    position: sticky;
+    top: 0px;
+    height: 80px;
+    border-color:10px solid #333;
+    
+} */
+.navbar a{
+    transition: all 0.3s ease ;
+    color: black;
+}
+.navbar a:hover{
+    box-shadow:0 10px 10px rgba(0, 0, 0, 0.2);
+}
+.footerinfo{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    height: 50px;
+    /* background-color: #f7f7f8; */
+}
+.tag{
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.tag:hover{
+    transition: all 0.3s ease ;
+    box-shadow:0 10px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+}
+.caption{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.footerwraplinks{
+    display: flex;
+    gap: 10px; 
+    flex-wrap: wrap;
+    gap:10px;
+    justify-content: center;
+}
+.footerwraplinks a{
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;  ;
+    color: black;
+}
+.footerwraplinks a:hover{
+text-decoration: underline;
+}
+.outerinfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f7f8;
+}
+.para .title,.price{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.form-label{
+    box-sizing: border-box;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+footer{
+    position: static;
+    margin-top: auto;
+    width: 100%;
+}
+
+
+
+
+/* coustom-styling now */
+
+
+.navbar{
+    height: 5rem;
+}
+
+.card{
+    border: none !important;
+    margin-bottom: 20px;
+}
+.card-img-top{
+    border-radius: 1rem ;
+}
+
+.card-body{
+    padding: 0;
+}
+.show-img{
+    width:40rem;
+}
+.show-tax{
+display: none;
+}

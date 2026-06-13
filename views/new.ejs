@@ -1,0 +1,80 @@
+<%- layout("./boilerpate.ejs")%>
+
+  <body>
+    
+      <div class="col-8 offset-2">
+
+        <form method="post" action="http://localhost:8080/listings/form" class="form  row needs-validation" novalidate enctype="multipart/form-data">
+          //enctype capables in sending file data as well to backend by form.
+          <h1>Enter new listings</h1>
+
+          <div>
+            <label for="title" class="form-label"></label>
+            <input placeholder="enter title" name="title" type="text" required class="form-control" required>
+            <div class="invalid-feedback">
+              enter valid input
+            </div>
+          </div>
+            <br>
+            <div>
+              <label class="description form-label"></label>
+              <textarea placeholder="Enter description" rows="4" cols="10" name="description" type="text"
+                class="form-control" value="enter description" required></textarea>
+              <div class="invalid-feedback">
+                enter valid textarea
+              </div>
+            </div>
+
+            <br>
+            <div class="mb-3">
+              <label for="image" class="image form-label"></label>
+              <input placeholder="enter Image url Link" name="image" class="form-control" type="file">
+
+              <div class="invalid-feedback">
+                enter valid image url
+              </div>
+            </div>
+
+            <br>
+            <div>
+              <label for="number" class="number form-label"></label>
+              <input name="price" placeholder="enter Price" type="number" required class="form-control" required>
+              <div class="invalid-feedback">
+                enter valid price
+              </div>
+            </div>
+
+            <br>
+            <div>
+              <label for="country" class="country form-label"></label>
+              <input placeholder="Enter Country" name="country" type="text" required class="form-control" required>
+              <div class="invalid-feedback">
+                enter valid country
+              </div>
+            </div>
+
+            <br>
+            <div>
+              <label for="location" class="location form-label"></label>
+              <input placeholder="Enter location" name="location" type="text" required class="form-control" required>
+              <div class="invalid-feedback">
+                enter valid location
+              </div>
+            </div>
+            <br>
+            <!-- <div>
+              <label for="formFileLg" class="form-label">Large file input example</label>
+              <input class="form-control form-control-lg" id="formFileLg" type="file">
+            </div> -->
+            <button type="submit" class="btn-dark btn">SUbmit</button>
+        </form>
+      </div>
+      <div>
+<h2>All Listings</h2>
+      
+      <script src="/js/script.js"></script>
+    
+
+  </body>
+
+  </html>

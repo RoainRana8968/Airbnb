@@ -1,0 +1,24 @@
+<%-include("./boilerpate.ejs") %>
+    
+    <%- include("./navbar.ejs")%>
+    
+<body>
+   <%if(error.length>0){%>
+    <div class="alert alert-warning alert-dismissible fade show offset-2 col-7" role="alert">
+  <%=error[error.length-1]%>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+    <%}%>
+    <div class="offset-2 col-8">
+         <h1>Login</h1>
+ <form action="http://localhost:8080/login" method="post">
+        <input type="text" name="username" placeholder="Username" class="form-control mb-3" required>
+        <input type="password" name="password" placeholder="Password" class="form-control mb-3" required>
+        <button type="submit">Login</button>
+    </form>
+    </div>
+   
+    <script src="/js/script.js"></script>
+    <%-include("./footer.ejs")%>
+</body>
+</html>

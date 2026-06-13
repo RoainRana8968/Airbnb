@@ -1,0 +1,182 @@
+<%- layout("./boilerpate.ejs") %>
+    <style>
+        .filters {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            box-sizing: border-box;
+
+            align-items: center;
+
+            /* justify-content: space-around; */
+            /* justify-content: space-evenly; */
+        }
+
+        .filter {
+            font-weight: 500;
+            text-align: center;
+            margin-right: 2rem;
+            margin-top: 2rem;
+            position: relative;
+            opacity: 0.7;
+        }
+
+        .filter i {
+            font-size: 1rem;
+        } 
+
+        .filter:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .show-tax {
+            display: none;
+        }
+
+        .tax-toggle {
+            border: 2px solid black;
+            height: 3rem;
+            padding: 10px;
+            border-radius: 20px;
+            margin-left: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+
+
+    <body>
+
+        <div class="filters">
+            <div class="filter">
+                <div><i class="fa-solid fa-bed"></i></div>
+                <div>Rooms</div>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-mountain-city"></i></div>
+                <div>Rooms</div>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-mountain"></i></div>
+                <div>Mountain rooms</div>
+            </div>
+            <div class="filter">
+                <div><i class="fa-brands fa-fort-awesome"></i></div>
+                <div>Castle</div>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-person-swimming"></i></div>
+                <div>pool</div>
+            </div>
+
+            <div class="filter">
+                <div><i class="fa-solid fa-campground"></i></div>
+                <div>camping</div>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-cow"></i></div>
+                <div>Cows</div>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-person-swimming"></i></div>
+                <div>pool</div>
+            </div>
+            <!--  -->
+            <div class="filter">
+                <div><i class="fa-solid fa-volleyball"></i></div>
+                <div>Volley ball</div>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-umbrella-beach"></i></div>
+                <div>umbrella beach</div>
+            </div>
+            <div class="filter">
+                <div><i class="fa-regular fa-snowflake"></i></div>
+                <div>Snow</div>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-igloo"></i></div>
+                <div>Igloo</div>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-sailboat"></i></div>
+                <div>Snow</div>
+            </div>
+            <div class="tax-toggle">
+
+
+                <div class="form-check-reverse form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                    <label class="form-check-label" for="switchCheckDefault">display total over taxes</label>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- <h1>All listings</h1> -->
+        <%if(success&&success.length){%>
+            <div class="alert alert-warning alert-dismissible fade show offset-2 col-7" role="alert">
+                <%=success[success.length-1]%>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <%}%>
+                <%if(error&&error.length){%>
+                    <div class="alert alert-danger alert-dismissible fade show offset-2 col-7" role="alert">
+                        <%=error[error.length-1]%>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <%}%>
+
+
+
+
+  <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-2 mt-3">
+    <%for(let i=0;i<listings.length;i++){%>
+   <a href="/listings/<%=listings[i]._id%>" class="listing-link">
+    <div class="card" style="width: 20rem;">
+    <img src="<%=listings[i].image.url%>" class="card-img-top" alt="..."style="height:20rem">
+             <div class="card-body">
+            <p class="card-text"> 
+            <B><%= listings[i].title%></B>
+          <br>
+       <%= listings[i].description%>
+          <br>
+         <b>&#x20B9;</b> <%=listings[i].price.toLocaleString("en-IN")%>/night <span class="show-tax">18%GST</span>
+        <br>
+     <%=listings[i].location%>/<%=listings[i].country%>
+    <br>
+    <%if(curruser&&curruser._id.equals(listings[i].owner._id)){%>
+      <form method="post" action="http://localhost:8080/listings/delete/<%=listings[i]._id%>?_method=DELETE">
+        <button type="submit">Delete</button>
+        </form><%}%>
+        </p>
+     </div>
+       </div>
+ </a>
+   <%}%>
+  </div>
+                        <!-- </div> -->
+                        <!-- used for adding code which is in pieces on another web page -->
+
+                        <script>
+                            let pricetoggle = document.getElementById("switchCheckDefault");
+                            let showtaxes = document.getElementsByClassName("show-tax");
+                            let body = document.body;
+                            pricetoggle.addEventListener("click", () => {
+                                for (let info of showtaxes) {
+                                    if (info.style.display != "inline") {
+                                        info.style.display = "inline";
+                                    }
+                                    else {
+                                        info.style.display = "none"
+                                    }
+                                }
+
+                            })
+                        </script>
+    </body>
+
+    </html>

@@ -1,0 +1,39 @@
+<%-include("./boilerpate.ejs")%>
+<body>
+    <%- include("./navbar.ejs")%>
+    <div class="offset-2 col-8">
+        <h1>Sign-up</h1>
+        <form action="http://localhost:8080/signup" class="form row needs-validation" novalidate  method="post">
+            <div>
+                <%if(error&&error.length>0){%>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <%=error[error.length-1]%>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <%}%>
+            </div>
+            <div>
+ <input  type="text" name="username" placeholder="Username" class="form-control mb-3" required>
+                <div class="invalid-feedback">
+                    enter valid username
+                </div>
+            </div>
+           <div>
+            <input type="password" name="password" placeholder="Password" class="form-control mb-3" required>
+                <div class="invalid-feedback">
+                    enter valid password
+                </div>
+           </div>
+           <div>
+            <input type="email" name="email" placeholder="Email" class="form-control mb-3" required>
+                <div class="invalid-feedback">
+                    enter valid email
+                </div>
+           </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+    </div>
+    <script src="/js/script.js"></script>
+    <%-include("./footer.ejs")%>
+</body>
+</html>
